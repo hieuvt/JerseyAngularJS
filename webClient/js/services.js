@@ -7,7 +7,7 @@ angular.module('ngClient.services', ['ngResource'])
         var settings = {};
         var bookResource = $resource(
             "http://localhost:8080/books", {}, {
-                create: { method: 'POST' }
+                create: {method: 'POST'}
             }
         );
 
@@ -21,9 +21,15 @@ angular.module('ngClient.services', ['ngResource'])
             return deferredObject.promise;
         };
 
-        settings.create = function(){
-            bookResource.create;
-        }
+        settings.createNewBook = function (book) {
+            var deferredObject = $q.defer();
+            bookResource.create(book).$promise.then(function (result) {
+                deferredObject.resolve(result);
+            }, function (errorMsg) {
+                deferredObject.reject(errorMsg);
+            });
+            return deferredObject.promise;
+        };
 
         return settings;
     })
@@ -33,7 +39,7 @@ angular.module('ngClient.services', ['ngResource'])
         var bookResource = $resource(
             "http://localhost:8080/books/:bookId",
             {bookId: '@id'}, {
-                update: { method: 'PUT', params: {bookId: '@id'} }
+                update: {method: 'PUT', params: {bookId: '@id'}}
             }
         );
 
@@ -48,9 +54,17 @@ angular.module('ngClient.services', ['ngResource'])
         }
 
         settings.delete = function (id) {
-            alert("deleting " + id);
-            var deferredObject = $q.defer();
             bookResource.delete({bookId: id})
+        }
+
+        settings.update = function(book) {
+            var deferredObject = $q.defer();
+            bookResource.update(book).$promise.then(function (result) {
+                deferredObject.resolve(result);
+            }, function (errorMsg) {
+                deferredObject.reject(errorMsg);
+            });
+            return deferredObject.promise;
         }
 
         return settings;

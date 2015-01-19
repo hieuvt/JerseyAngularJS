@@ -17,12 +17,46 @@ angular.module('ngClient.controllers', ["ngResource"])
 
         $scope.deleteBook = function (bookId) {
             Book.delete(bookId);
+            Books.query().then(function (result) {
+                $window.location.reload()
+            }, function (error) {
+                $scope.errorMess = JSON.stringify(error);
+            });
+        }
+
+        $scope.createNewBook = function() {
+            $location.path('/book-creation')
         }
     })
 
-    .controller("BookDetailCtrl", function ($scope, Book){
-        Book.get('0').then(function( result ) {
+    .controller("BookDetailCtrl", function ($scope, Book, $routeParams, $location){
+        Book.get( $routeParams.bookId).then(function( result ) {
             $scope.book = result;
         }, function(error) {
         });
+
+        $scope.cancelEditBook = function (){
+            $location.path('/book-list')
+        };
+
+        $scope.updateBook = function (){
+            Book.update($scope.book).then(function (result) {
+                $location.path('/book-list');
+            }, function (error) {
+                $scope.errorMess = JSON.stringify(error);
+            });
+        }
+    })
+
+.controller('BookCreationCtrl', function ($scope, Books, $location){
+        $scope.createNewBook = function (){
+            Books.createNewBook($scope.book).then(function (result) {
+                $location.path('/book-list');
+            }, function (error) {
+                $scope.errorMess = JSON.stringify(error);
+            });
+        }
+        $scope.cancelCreateNewBook = function (){
+            $location.path('/book-list')
+        }
     })

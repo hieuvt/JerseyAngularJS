@@ -42,6 +42,8 @@ public class BookDB {
     }
 
     public BookVO createNewBook(BookVO bookVO){
+        System.out.println("BookDB.createNewBook");
+        System.out.println(bookVO.getBookId());
         int maxBookId = Integer.MIN_VALUE;
         for (BookVO book: getBooks()){
             if (maxBookId < book.getBookId()){
@@ -65,8 +67,6 @@ public class BookDB {
     }
 
     public void removeBook(int bookId){
-        System.out.println("BookDB.removeBook");
-        System.out.println(bookId);
 /*        for (BookVO bookVO:getBooks()){
             if (bookVO.getBookId() == bookId){
                 getBooks().remove(bookVO);

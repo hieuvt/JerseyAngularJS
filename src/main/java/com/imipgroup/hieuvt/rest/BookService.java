@@ -87,12 +87,12 @@ public class BookService {
     public BookVO createBook(BookVO bookVO) {
         return BookDB.getInstance().createNewBook(bookVO);
     }
-/*
+
     @PUT
     public BookVO updateBookInfo(BookVO bookVO) {
         return BookDB.getInstance().updateBookInfo(bookVO);
     }
-*/
+
     @DELETE
     @Path("{id}")
     public void removeBook(@PathParam("id") String id) {
