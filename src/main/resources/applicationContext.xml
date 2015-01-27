@@ -6,6 +6,7 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<context:component-scan base-package="com.imipgroup.hieuvt.rest" />
+	<context:component-scan base-package="com.imipgroup.hieuvt" />
+	<context:annotation-config />
 
 </beans>

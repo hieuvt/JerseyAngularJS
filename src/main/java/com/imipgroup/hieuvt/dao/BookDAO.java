@@ -6,20 +6,15 @@ import com.imipgroup.hieuvt.util.SessionUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * Created by hieu.vutrong on 10/28/2014.
  */
+@Component
 public class BookDAO {
-
-    private static BookDAO instance = new BookDAO();
-    public static BookDAO getInstance() {
-        return instance;
-    }
-
-    private List<BookVO> books;
 
     public BookDAO() {
         DataUtil.getInstance();
