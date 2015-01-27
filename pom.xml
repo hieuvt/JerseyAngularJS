@@ -12,6 +12,11 @@
     <properties>
         <jersey.version>1.8</jersey.version>
         <spring.version>3.0.5.RELEASE</spring.version>
+        <hibernate-core.version>4.2.11.Final</hibernate-core.version>
+        <hibernate-validator.version>5.1.0.Alpha1</hibernate-validator.version>
+        <hsqldb.version>2.3.1</hsqldb.version>
+        <c3p0.version>0.9.2.1</c3p0.version>
+        <junit.version>4.11</junit.version>
     </properties>
 
     <repositories>
@@ -118,6 +123,55 @@
             <version>1.9.13</version>
         </dependency>
 -->
+
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>${c3p0.version}</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator-cdi</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>-->
+
+        <!-- HSQL -->
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>${hsqldb.version}</version>
+        </dependency>
+
+        <!-- Junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
