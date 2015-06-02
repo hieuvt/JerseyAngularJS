@@ -6,7 +6,7 @@ angular.module('ngClient.services', ['ngResource'])
     .factory("Books", function ($resource, $q) {
         var settings = {};
         var bookResource = $resource(
-            "http://localhost:8080/books", {}, {
+            "http://192.168.1.105:8080/books", {}, {
                 create: {method: 'POST'}
             }
         );
@@ -37,7 +37,7 @@ angular.module('ngClient.services', ['ngResource'])
     .factory('Book', function ($resource, $q, $window) {
         var settings = {};
         var bookResource = $resource(
-            "http://localhost:8080/books/:bookId",
+            "http://192.168.1.105:8080/books/:bookId",
             {bookId: '@id'}, {
                 update: {method: 'PUT', params: {bookId: '@id'}}
             }

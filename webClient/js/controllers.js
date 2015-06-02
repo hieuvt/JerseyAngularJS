@@ -9,6 +9,7 @@ angular.module('ngClient.controllers', ["ngResource"])
             $scope.books = result;
         }, function (error) {
             $scope.errorMess = JSON.stringify(error);
+            console.log($scope.errorMess);
         });
 
         $scope.editBook = function (bookId) {

@@ -14,10 +14,11 @@
         <!-- set up c3p0 for use -->
         <property name="c3p0.max_size">10</property>
         <!--  Echo all executed SQL to stdout  -->
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
         <!--  Drop and re-create the database schema on startup  -->
         <property name="hbm2ddl.auto">create</property>
 
-        <mapping class="com.imipgroup.hieuvt.entity.BookVO"/>
+        <mapping class="com.imipgroup.hieuvt.entity.Product"/>
+        <mapping class="com.imipgroup.hieuvt.entity.Category"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,6 +1,6 @@
 package com.imipgroup.hieuvt.dao;
 
-import com.imipgroup.hieuvt.entity.BookVO;
+import com.imipgroup.hieuvt.entity.Product;
 import com.imipgroup.hieuvt.util.DataUtil;
 import com.imipgroup.hieuvt.util.SessionUtil;
 import org.hibernate.Query;
@@ -14,9 +14,9 @@ import java.util.List;
  * Created by hieu.vutrong on 10/28/2014.
  */
 @Component
-public class BookDAO {
+public class ProductDAO {
 
-    public BookDAO() {
+    public ProductDAO() {
         DataUtil.getInstance();
     }
 
@@ -29,63 +29,71 @@ public class BookDAO {
         return null;
     }*/
 
-    public BookVO getBook(int bookId){
+    public Product getProduct(int productId){
         Session session = SessionUtil.getSession();
         Transaction transaction = session.beginTransaction();
 
-        BookVO bookVO = (BookVO) session.get(BookVO.class, bookId);
+        //Simple query
+//        Product product = (Product) session.get(Product.class, productId);
+
+        //A more general query
+        Query query=session.createQuery("from Product p where p.id=:productId");
+        query.setParameter("productId", productId);
+        Product product = (Product) query.uniqueResult();
 
         transaction.commit();
         session.close();
-        return bookVO;
+        return product;
     }
 
-    public BookVO createNewBook(BookVO bookVO){
+    public Product createProduct(Product product){
         Session session = SessionUtil.getSession();
         Transaction transaction = session.beginTransaction();
 
-        session.save(bookVO);
+        session.save(product);
 
         transaction.commit();
         session.close();
-        return bookVO;
+        return product;
     }
 
-    public BookVO updateBookInfo(BookVO bookVO){
+    public Product updateProduct(Product product){
 
         Session session = SessionUtil.getSession();
         Transaction transaction = session.beginTransaction();
 
-        BookVO tmpBook = (BookVO)session.get(BookVO.class, bookVO.getBookId());
-        tmpBook.setAuthor(bookVO.getAuthor());
-        tmpBook.setBookName(bookVO.getBookName());
+        Product tmpProduct = (Product)session.get(Product.class, product.getProductId());
+        tmpProduct.setDescription(product.getDescription());
+        tmpProduct.setProductName(product.getProductName());
+        tmpProduct.setCategory(product.getCategory());
+        tmpProduct.setPrice(product.getPrice());
 
         transaction.commit();
         session.close();
-        return tmpBook;
+        return tmpProduct;
     }
 
-    public void removeBook(int bookId){
+    public void removeProduct(int productId){
 
         Session session = SessionUtil.getSession();
         Transaction transaction = session.beginTransaction();
 
-        BookVO bookVO = (BookVO) session.get(BookVO.class, bookId);
-        session.delete(bookVO);
+        Product product = (Product) session.get(Product.class, productId);
+        session.delete(product);
 
         transaction.commit();
         session.close();
     }
 
-    public List<BookVO> listBooks() {
+    public List<Product> listProducts() {
 
         Session session = SessionUtil.getSession();
         Transaction transaction = session.beginTransaction();
-        Query query = session.createQuery("from BookVO b");
-        List<BookVO> bookVOs = query.list();
+        Query query = session.createQuery("from Product b");
+        List<Product> products = query.list();
         transaction.commit();
         session.close();
-        return bookVOs;
+        return products;
     }
 
 }

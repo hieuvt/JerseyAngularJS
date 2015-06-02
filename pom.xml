@@ -38,18 +38,6 @@
             <version>${jersey.version}</version>
         </dependency>
 
-<!--        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-json</artifactId>
-            <version>${jersey.version}</version>
-        </dependency>-->
-
-<!--        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-json-jackson</artifactId>
-            <version>2.4.1</version>
-        </dependency>-->
-
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-jaxrs</artifactId>
@@ -117,13 +105,6 @@
             <version>1.5.6</version>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-jaxrs</artifactId>
-            <version>1.9.13</version>
-        </dependency>
--->
-
         <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -141,21 +122,6 @@
             <artifactId>c3p0</artifactId>
             <version>${c3p0.version}</version>
         </dependency>
-        <!--<dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate-core.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate-validator.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator-cdi</artifactId>
-            <version>${hibernate-validator.version}</version>
-        </dependency>-->
 
         <!-- HSQL -->
         <dependency>
