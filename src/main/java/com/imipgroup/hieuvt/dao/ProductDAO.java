@@ -89,11 +89,21 @@ public class ProductDAO {
 
         Session session = SessionUtil.getSession();
         Transaction transaction = session.beginTransaction();
-        Query query = session.createQuery("from Product b");
+        Query query = session.createQuery("from Product p ");
         List<Product> products = query.list();
         transaction.commit();
         session.close();
         return products;
     }
 
+    public List<Product> listProductByCategory(int categoryId){
+        Session session = SessionUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("from Product p where p.category.catId =:categoryId");
+        query.setParameter("categoryId", categoryId);
+        List<Product> products = query.list();
+        transaction.commit();
+        session.close();
+        return products;
+    }
 }

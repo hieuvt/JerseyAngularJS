@@ -1,6 +1,10 @@
 package com.imipgroup.hieuvt.entity;
 
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -18,8 +22,8 @@ public class Category implements Serializable{
     @Column
     private String catName;
 
-//    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-//    @JoinColumn
+//    @OneToMany(mappedBy = "category")
+//    @Cascade(CascadeType.ALL)
 //    private Set<Product> products;
 
     public Category(){

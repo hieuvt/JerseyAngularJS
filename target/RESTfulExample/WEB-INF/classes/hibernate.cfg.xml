@@ -20,5 +20,7 @@
 
         <mapping class="com.imipgroup.hieuvt.entity.Product"/>
         <mapping class="com.imipgroup.hieuvt.entity.Category"/>
+        <mapping class="com.imipgroup.hieuvt.entity.Cart"/>
+        <mapping class="com.imipgroup.hieuvt.entity.LineItem"/>
     </session-factory>
 </hibernate-configuration>

@@ -43,12 +43,13 @@ public class DataUtil {
                 new Product("Bling-Bling King", "Gold-plated, diamond-studded King", categories.get(2), 1200)
         );
 
-        /*for (Category c: categories){
-            session.save(c);
-        }*/
         for (Product p: products){
             session.save(p);
         }
+//        for (Category c: categories){
+//            session.save(c);
+//        }
+
 
         transaction.commit();
         session.close();

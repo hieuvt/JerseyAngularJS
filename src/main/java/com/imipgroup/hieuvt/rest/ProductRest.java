@@ -53,5 +53,10 @@ public class ProductRest {
         productService.removeProduct(new Integer(id));
     }
 
+    @GET
+    @Path("/category")
+    public List<Product> listProductByCategory(@QueryParam("categoryId") String categoryId){
+        return productService.listProductByCategory(new Integer(categoryId));
+    }
 
 }

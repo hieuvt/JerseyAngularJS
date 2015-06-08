@@ -37,4 +37,8 @@ public class ProductService {
     public void removeProduct(int id) {
         productDAO.removeProduct(id);
     }
+
+    public List<Product> listProductByCategory(int catId) {
+        return productDAO.listProductByCategory(catId);
+    }
 }

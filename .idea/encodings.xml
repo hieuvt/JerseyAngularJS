@@ -3,6 +3,6 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/src/main/java/com/imipgroup/hieuvt/util/SessionUtil.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/webClient/js/app.js" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/webClient/partials/book-creation.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/webClient/partials/product-creation.html" charset="UTF-8" />
   </component>
 </project>
